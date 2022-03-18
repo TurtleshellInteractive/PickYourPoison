@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCollision : MonoBehaviour
+public class EnemyRagdoll : MonoBehaviour
 {
     public Collider[] limbs;
     public Collider mainCollision;
@@ -10,7 +10,7 @@ public class EnemyCollision : MonoBehaviour
     void Start()
     {
         enemy = GetComponent<Enemy>();
-        for (int i = 0; i < limbs.Length; i++)
+        for(int i = 0; i < limbs.Length; i++)
         {
             limbs[i].enabled = false;
         }

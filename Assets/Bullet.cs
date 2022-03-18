@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     Rigidbody rb;
     public float bulletSpeed = 15f;
     Vector3 direction;
-    public bool spread;
+    public bool spread = false;
     public GameObject enemy;
     public GameObject sparks; 
     void Awake()
@@ -23,6 +23,10 @@ public class Bullet : MonoBehaviour
         else
         {
             targetPoint = ray.GetPoint(75);
+        }
+        if(spread == true)
+        {
+            targetPoint += new Vector3(Random.Range(-1.4f,1.4f), Random.Range(-1.4f, 1.4f), Random.Range(-1.4f, 1.4f));
         }
         direction = targetPoint - transform.position;
     }

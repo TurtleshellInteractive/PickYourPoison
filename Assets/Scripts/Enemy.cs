@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     public Transform player;
     GameObject playerObj;
     public GameObject neck;
+    public GameObject bullet;
+    public GameObject spawn;
     GameObject bones;
     public LayerMask whatIsGround, WhatIsPlayer;
     public Animator animator;
@@ -22,11 +24,11 @@ public class Enemy : MonoBehaviour
 
     public float timeBetweenAttacks;
     bool alreadyAttacked;
+    public bool ragdoll = false;
 
     public float sightRange, attackRange;
     public bool inSightRange, inAttackRange;
     bool stopped = false;
-    bool floating = false;
 
     // Start is called before the first frame update
     private void Awake()
@@ -97,10 +99,7 @@ public class Enemy : MonoBehaviour
         UnityEngine.Physics.Raycast(ray, out hit);*/
             if (!alreadyAttacked)
         {
-            if (Random.Range(0, 10) < 7)
-            {
-                playerObj.BroadcastMessage("Damage", damage);
-            }
+            Instantiate(bullet, spawn.transform.position, spawn.transform.rotation);
             alreadyAttacked = true;
             Invoke(nameof(resetAttack), timeBetweenAttacks);
         }
@@ -114,6 +113,7 @@ public class Enemy : MonoBehaviour
     {
         animator.enabled = false;
         agent.enabled = false;
+        EnemyRagdoll = true;
         stopped = true;
         Invoke("death", 5f);
     }
@@ -133,11 +133,6 @@ public class Enemy : MonoBehaviour
     void blindEye()
     {
         agent.speed = agent.speed * 1.5f;
-    }
-
-    void floater()
-    {
-        floating = true;
     }
 
     void hardcore()

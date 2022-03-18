@@ -23,6 +23,8 @@ public class Shooting : MonoBehaviour
     public GameObject bullet;
     public GameObject spawn;
     public Camera cam;
+    public Bullet extra;
+
     Weapon pistol;
     Weapon shotgun;
     Weapon rifle;
@@ -52,16 +54,25 @@ public class Shooting : MonoBehaviour
             currentWeapon = shotgun;
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            currentWeapon = rifle;
+        }    
+
         if (Input.GetMouseButton(0) && canShoot)
         {
             if(currentWeapon == shotgun)
             {
+                extra.spread = true;
                 Instantiate(bullet, spawn.transform.position, cam.transform.rotation);
-                Instantiate(bullet, spawn.transform.position, cam.transform.rotation * Quaternion.LookRotation(spawn.transform.forward + new Vector3(-5f, 5f, 0f)));
-                Instantiate(bullet, spawn.transform.position, cam.transform.rotation * Quaternion.LookRotation(spawn.transform.forward + new Vector3(5f, -5f, 0f)));
+                Instantiate(bullet, spawn.transform.position, cam.transform.rotation);
+                Instantiate(bullet, spawn.transform.position, cam.transform.rotation);
+                Instantiate(bullet, spawn.transform.position, cam.transform.rotation);
+                Instantiate(bullet, spawn.transform.position, cam.transform.rotation);
             }
             else
             {
+                extra.spread = false;
                 Instantiate(bullet,spawn.transform.position,cam.transform.rotation);
             }
             canShoot = false;
