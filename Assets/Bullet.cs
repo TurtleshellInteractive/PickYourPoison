@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
         }
         if(spread == true)
         {
-            targetPoint += new Vector3(Random.Range(-1.4f,1.4f), Random.Range(-1.4f, 1.4f), Random.Range(-1.4f, 1.4f));
+            targetPoint += new Vector3(Random.Range(-2.5f,2.5f), Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f));
         }
         direction = targetPoint - transform.position;
     }

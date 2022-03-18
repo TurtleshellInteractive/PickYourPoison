@@ -18,6 +18,15 @@ public class Health : MonoBehaviour
 
     void Damage(int damage)
     {
-        health -= damage;
+        if(damage == 0)
+        {
+            health -= 12;
+            Debug.Log("e");
+        }
+        else
+        {
+            health -= damage;
+        }
+        
     }
 }

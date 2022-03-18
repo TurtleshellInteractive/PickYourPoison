@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86745e84c02b2e34eab5325b91745705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 15
+  bulletSpeed: 50
   spread: 0
   enemy: {fileID: 0}
   sparks: {fileID: 412992726410998314, guid: 706e30e0effa03c4daeabc4897ada525, type: 3}

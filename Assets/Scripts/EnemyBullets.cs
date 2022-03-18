@@ -30,7 +30,7 @@ public class EnemyBullets : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.transform.root.gameObject.BroadcastMessage("Damage",20);
+            collision.transform.root.gameObject.BroadcastMessage("Damage",12);
         }
         if (collision.gameObject.tag != "bullet")
         {

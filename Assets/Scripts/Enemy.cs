@@ -113,7 +113,7 @@ public class Enemy : MonoBehaviour
     {
         animator.enabled = false;
         agent.enabled = false;
-        EnemyRagdoll = true;
+        ragdoll = true;
         stopped = true;
         Invoke("death", 5f);
     }
